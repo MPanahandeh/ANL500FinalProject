@@ -1,6 +1,6 @@
 ---
 title: "Sleep Analysis"
-author: "Jai Rajora, Mehrdad panahandeh, Wish"
+author: "Jai Rajora, Mehrdad panahandeh, Vishwanath Kuma Maharajapuram"
 date: "29 May 2016"
 output: html_document
 ---
