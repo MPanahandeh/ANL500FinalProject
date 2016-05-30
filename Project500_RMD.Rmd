@@ -1,0 +1,78 @@
+---
+title: "Sleep Analysis"
+author: "Jai Rajora, Mehrdad panahandeh, Wish"
+date: "29 May 2016"
+output: html_document
+---
+
+## Summary of Sleep Data
+```{r echo=TRUE}
+
+summary(SData)
+
+```
+
+## The correlation coefficient is showing a negative and low number of
+```{r echo=TRUE}
+SData <- read.csv("SData.csv")
+cor(SData$Sleep.Efficiency,SData$Total.Breaks)
+
+```
+
+```{r echo=TRUE}
+library(ggplot2)
+qplot(SData$Subject,SData$Total.Breaks,xlab = "SUBJECT NAME's",ylab = "TOTAL NUMBER OF BREAKS")
+
+```
+
+```{r echo=TRUE}
+library(lattice)
+xyplot(SData$Total.Breaks~SData$Subject,xlab = "SUBJECT NAME", ylab = "TOTAL BREAKS")
+bwplot(SData$Total.Breaks~SData$Subject,xlab = "SUBJECT NAME", ylab = "TOTAL BREAKS")
+dotplot(SData$Total.Breaks~SData$Subject,xlab = "SUBJECT NAME", ylab = "TOTAL BREAKS",main="NUMBER OF BREAKS TAKEN BY EACH SUBJECT")
+
+```
+
+
+
+```{r echo=TRUE}
+qplot(Sleep.Efficiency,data = SData,fill= Subject)
+qplot(Sleep.Efficiency,data = SData,geom="density",fill= Subject)
+
+```
+
+
+```{r echo=TRUE}
+qplot(Subject,Sleep.Efficiency,data=SData,facets = .~Subject,color=Subject)
+```
+
+
+##Histogram
+```{r echo=TRUE}
+qplot(Sleep.Efficiency,data = SData,fill= Subject)
+qplot(Sleep.Efficiency,data = SData,geom="density",fill= Subject)
+
+```
+
+
+##Individual Data Sets
+```{r echo=TRUE}
+qplot(Subject,Sleep.Efficiency,data=SData,facets = .~Subject,color=Subject)
+
+```
+
+##Showing a trend line based on our sleep efficiency levels 
+```{r echo=TRUE}
+
+
+qplot(log(SData$Sleep.Efficiency),data = SData,geom="density",color=Subject)
+
+```
+
+
+
+
+```{r echo=TRUE}
+
+```
+
